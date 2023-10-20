@@ -1,5 +1,13 @@
-@include('include.header');
+@extends('include.app')
+@section('styles')
+    <style>
+        .contact_section input {
+            color: black;
+        }
+    </style>
+@endsection
 
+@section('content')
 
   <!-- contact section -->
 
@@ -9,21 +17,29 @@
         <h2>
           Contact Us
         </h2>
+
+        @if(Session::has('success'))
+        <div class="alert alert-success">
+            {{ Session::get('success') }}
+        </div>
+    @endif
       </div>
+
       <div class="row">
         <div class="col-md-6">
-          <form action="">
+            <form action="contact-save" method="POST">
+              @csrf
             <div>
-              <input type="text" placeholder="Name" />
+              <input type="text" placeholder="Name" name="name"/>
             </div>
             <div>
-              <input type="text" placeholder="Phone Number" />
+              <input type="text" placeholder="Phone Number" name="phone_number"/>
             </div>
             <div>
-              <input type="email" placeholder="Email" />
+              <input type="email" placeholder="Email" name="email" />
             </div>
             <div>
-              <input type="text" class="message-box" placeholder="Message" />
+              <input type="text" class="message-box" placeholder="Message" name="message"/>
             </div>
             <div class="d-flex ">
               <button>
@@ -122,4 +138,4 @@
 
   <!-- end info_section -->
 
-  @include('include.footer');
+  @endsection

@@ -25,6 +25,7 @@
   <link href="assets/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="assets/css/responsive.css" rel="stylesheet" />
+  @yield('styles')
 
 </head>
 

@@ -1,6 +1,9 @@
 <?php
 
+use App\Models\Message;
 use App\Models\Service;
+use Illuminate\Contracts\Session\Session;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 
@@ -30,4 +33,8 @@ Route::get('/about', function () {
 Route::get('/service', function () {
     $services = Service::all();
     return view('service', compact('services'));
+});
+Route::post('/contact-save', function (Request $request) {
+    message::create($request->all());
+    return redirect()->back()->with('success', 'You have Successfully Registred');
 });
