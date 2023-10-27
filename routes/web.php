@@ -38,3 +38,16 @@ Route::post('/contact-save', function (Request $request) {
     message::create($request->all());
     return redirect()->back()->with('success', 'You have Successfully Registred');
 });
+
+
+Route::get('/admin/dashboard', function () {
+    $countmessage = Message::count();
+    $countservices = Service::count();
+    return view('admin.dashboard', compact('countmessage', 'countservices'));
+});
+
+Route::get('/admin/service', function () {
+    $countmessage = Message::count();
+    $countservices = Service::count();
+    return view('admin.service', compact('countservices', 'countmessage'));
+});
