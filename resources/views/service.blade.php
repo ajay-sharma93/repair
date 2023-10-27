@@ -1,4 +1,4 @@
-@include('include.header');
+@include('include.header')
   <!-- service section -->
 
   <section class="service_section layout_padding">
@@ -114,4 +114,4 @@
 
   <!-- end info_section -->
 
-  @include('include.footer');
+  @include('include.footer')

@@ -42,12 +42,8 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
+
+
     </ul>
 
     <!-- Right navbar links -->
@@ -142,7 +138,7 @@
           </li>
           <li class="nav-item">
             <a href="/admin/service" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Service
 
@@ -150,6 +146,15 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="/admin/message" class="nav-link">
+              <i class="nav-icon far fa-envelope"></i>
+              <p>
+                Message
+
+              </p>
+            </a>
+          </li>
 
 
 
@@ -175,7 +180,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
+              <li class="breadcrumb-item active">Dashboard</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -183,7 +188,7 @@
     </div>
     <!-- /.content-header -->
 
-    @yield('content');
+    @yield('content')
 
     <!-- /.content-wrapper -->
   <footer class="main-footer">

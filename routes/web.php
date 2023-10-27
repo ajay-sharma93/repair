@@ -49,5 +49,14 @@ Route::get('/admin/dashboard', function () {
 Route::get('/admin/service', function () {
     $countmessage = Message::count();
     $countservices = Service::count();
-    return view('admin.service', compact('countservices', 'countmessage'));
+    $services = Service::all();
+    return view('admin.service', compact('countservices', 'countmessage', 'services'));
+});
+
+Route::get('/admin/message', function () {
+    $countmessage = Message::count();
+    $countservices = Service::count();
+    $services = Service::all();
+    $messages = Message::all();
+    return view('admin.message', compact('countservices', 'countmessage', 'messages'));
 });
