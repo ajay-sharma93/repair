@@ -1,11 +1,15 @@
 <?php
 
+use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ServiceController;
 use App\Models\Service;
 use App\Models\Message;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,43 +22,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $services = Service::all();
-    $testimonials = Testimonial::all();
-    return view('index', compact('services', 'testimonials'));
-});
-Route::get('/contact', function () {
-    return view('contact');
-});
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/', [FrontendController::class, 'index']);
+Route::get('/contact', [FrontendController::class, 'contact']);
+Route::get('/about', [FrontendController::class, 'about']);
+Route::post('/save-contact', [FrontendController::class, 'saveContact']);
 
-Route::post('/save-contact', function (Request $request) {
-    Message::create($request->all());
-    return redirect()->back()->with('success', 'Your message has been received');
-});
 
-Route::post('/save-contact', function (Request $request) {
-    Message::create($request->all());
-    return redirect()->back()->with('success', 'Your message has been received');
-});
-// ------------------------ Dashboard Routes -------------------------------- //
+// ------------------------ Dashboard Routes ---    ----------------------------- //
 
-Route::get('admin/dashboard', function () {
-    $messageCount = Message::count();
-    return view('admin.dashboard', compact('messageCount'));
-});
+Route::get('admin/dashboard', [DashboardController::class, 'index']);
+Route::get('/admin/messages', [MessageController::class, 'index']);
 
-Route::get('/admin/messages', function () {
-    $messages = Message::all();
-    return view('admin.messages', compact('messages'));
-});
-Route::get('/admin/messages/{id}/delete', function ($id) {
-    $message = Message::find($id);
-    $message->delete();
-    return redirect('/admin/messages')->with('You have successfully deleted a user\'s message');
-});
+Route::get('/admin/messages/{id}/delete', [MessageController::class, 'index']);
+Route::get('/admin/messages/{id}/delete', [MessageController::class, 'destroy']);
 
 // ----------CRUD for Service---------- //
 Route::get('admin/service', [ServiceController::class, 'index'])->name('admin.service.index');

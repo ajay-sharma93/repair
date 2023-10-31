@@ -212,33 +212,33 @@
             </div>
             <div class="carousel-wrap layout_padding2-top ">
                 <div class="owl-carousel">
-                    @foreach ($testimonials as $testimonial)
-                        <div class="item">
-                            <div class="box">
-                                <div class="client_id">
-                                    <div class="img-box">
-                                        <img src="{{ $testimonial->image }}" alt="">
-                                    </div>
-                                    <div class="client_detail">
-                                        <div class="client_info">
-                                            <h6>
-                                                {{ $testimonial->name }}
-                                            </h6>
-                                            @for ($i = 0; $i < $testimonial->ratings; $i++)
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                            @endfor
-                                        </div>
-                                        <i class="fa fa-quote-left" aria-hidden="true"></i>
-                                    </div>
+                    {{-- @foreach ($testimonials as $testimonial) --}}
+                    <div class="item">
+                        <div class="box">
+                            <div class="client_id">
+                                <div class="img-box">
+                                    {{-- <img src="{{ $testimonial->image }}" alt=""> --}}
                                 </div>
-                                <div class="client_text">
-                                    <p>
-                                        {{ $testimonial->feedback }}
-                                    </p>
+                                <div class="client_detail">
+                                    <div class="client_info">
+                                        <h6>
+                                            {{-- {{ $testimonial->name }} --}}
+                                        </h6>
+                                        {{-- @for ($i = 0; $i < $testimonial->ratings; $i++) --}}
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                        {{-- @endfor --}}
+                                    </div>
+                                    <i class="fa fa-quote-left" aria-hidden="true"></i>
                                 </div>
                             </div>
+                            <div class="client_text">
+                                <p>
+                                    {{-- {{ $testimonial->feedback }} --}}
+                                </p>
+                            </div>
                         </div>
-                    @endforeach
+                    </div>
+                    {{-- @endforeach --}}
                 </div>
             </div>
         </div>
