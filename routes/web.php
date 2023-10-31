@@ -33,7 +33,6 @@ Route::post('/save-contact', [FrontendController::class, 'saveContact']);
 Route::get('admin/dashboard', [DashboardController::class, 'index']);
 Route::get('/admin/messages', [MessageController::class, 'index']);
 
-Route::get('/admin/messages/{id}/delete', [MessageController::class, 'index']);
 Route::get('/admin/messages/{id}/delete', [MessageController::class, 'destroy']);
 
 // ----------CRUD for Service---------- //

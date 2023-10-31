@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Message;
 use App\Models\Service;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
@@ -23,5 +24,18 @@ class FrontendController extends Controller
     public function about()
     {
         return view('about');
+    }
+
+    public  function saveContact(Request $request)
+    {
+
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+
+
+        Message::create($request->all());
+        return redirect()->back()->with('success', 'Your Message has been recorded');
     }
 }
