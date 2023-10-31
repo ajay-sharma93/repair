@@ -271,13 +271,16 @@
                     <form action="save-contact" method="POST">
                         @csrf
                         <div>
-                            <input type="text" placeholder="Name" name="name" />
+                            <input type="text" placeholder="Name" name="name"
+                                @error('name') style="border: 1px solid red;"  @enderror />
                         </div>
                         <div>
-                            <input type="text" placeholder="Phone Number" name="phone_number" />
+                            <input type="text" placeholder="Phone Number" name="phone_number"
+                                @error('phone_number') style="border:1px solid red;"@enderror />
                         </div>
                         <div>
-                            <input type="email" placeholder="Email" name="email" />
+                            <input type="email" placeholder="Email" name="Email"
+                                @error('Email') style="border:1px solid red;"@enderror />
                         </div>
                         <div>
                             <input type="text" class="message-box" placeholder="Message" name="message" />

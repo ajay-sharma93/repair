@@ -31,6 +31,8 @@ class FrontendController extends Controller
 
         $request->validate([
             'name' => 'required',
+            'phone_number' => 'required',
+            'email' => 'required'
         ]);
 
 
