@@ -39,18 +39,19 @@
                     <form action="save-contact" method="POST">
                         @csrf
                         <div>
-                            <input type="text" placeholder="Name" name="name"
+                            <input type="text" placeholder="Name" name="name" value="{{ old('name') }}"
                                 @error('name') style="border: 1px solid red;"  @enderror />
 
                         </div>
                         <div>
                             <input type="text" placeholder="Phone Number" name="phone_number"
+                                value="{{ old('phone_number') }}"
                                 @error('phone_number')
                                 style="border: 1px solid red;"
                             @enderror />
                         </div>
                         <div>
-                            <input type="email" placeholder="Email" name="email"
+                            <input type="email" placeholder="Email" name="email" value="{{ old('email') }}"
                                 @error('email') style="border: 1px solid red;"  @enderror />
                         </div>
                         <div>

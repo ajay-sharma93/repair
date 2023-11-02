@@ -212,33 +212,33 @@
             </div>
             <div class="carousel-wrap layout_padding2-top ">
                 <div class="owl-carousel">
-                    {{-- @foreach ($testimonials as $testimonial) --}}
-                    <div class="item">
-                        <div class="box">
-                            <div class="client_id">
-                                <div class="img-box">
-                                    {{-- <img src="{{ $testimonial->image }}" alt=""> --}}
-                                </div>
-                                <div class="client_detail">
-                                    <div class="client_info">
-                                        <h6>
-                                            {{-- {{ $testimonial->name }} --}}
-                                        </h6>
-                                        {{-- @for ($i = 0; $i < $testimonial->ratings; $i++) --}}
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        {{-- @endfor --}}
+                    @foreach ($testimonials as $testimonial)
+                        <div class="item">
+                            <div class="box">
+                                <div class="client_id">
+                                    <div class="img-box">
+                                        {{-- <img src="{{ $testimonial->image }}" alt=""> --}}
                                     </div>
-                                    <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                    <div class="client_detail">
+                                        <div class="client_info">
+                                            <h6>
+                                                {{ $testimonial->name }}
+                                            </h6>
+                                            @for ($i = 0; $i < $testimonial->ratings; $i++)
+                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                            @endfor
+                                        </div>
+                                        <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="client_text">
-                                <p>
-                                    {{-- {{ $testimonial->feedback }} --}}
-                                </p>
+                                <div class="client_text">
+                                    <p>
+                                        {{ $testimonial->feedback }}
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    {{-- @endforeach --}}
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -272,15 +272,15 @@
                         @csrf
                         <div>
                             <input type="text" placeholder="Name" name="name"
-                                @error('name') style="border: 1px solid red;"  @enderror />
+                                @error('name') style="border:1px solid red;"  @enderror />
                         </div>
                         <div>
                             <input type="text" placeholder="Phone Number" name="phone_number"
-                                @error('phone_number') style="border:1px solid red;"@enderror />
+                                @error('phone_number') style="border:1px solid red;" @enderror />
                         </div>
                         <div>
-                            <input type="email" placeholder="Email" name="Email"
-                                @error('Email') style="border:1px solid red;"@enderror />
+                            <input type="email" placeholder="Email" name="email"
+                                @error('email') style="border:1px solid red;" @enderror />
                         </div>
                         <div>
                             <input type="text" class="message-box" placeholder="Message" name="message" />

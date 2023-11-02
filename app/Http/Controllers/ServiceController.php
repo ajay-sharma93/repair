@@ -13,11 +13,19 @@ class ServiceController extends Controller
         return view('admin.service.index', compact('services'));
     }
 
-    public function create(){
+    public function create()
+    {
         return view('admin.service.create');
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string',
+            'price' => 'required|numeric',
+            'description' => 'required|string',
+        ]);
+
         Service::create([
             'name' => $request->name,
             'price' => $request->price,
@@ -25,6 +33,8 @@ class ServiceController extends Controller
         ]);
         return redirect('/admin/service')->with('success', 'You have successfully created a new service');
     }
+
+
 
     public function edit($id)
     {
@@ -40,10 +50,14 @@ class ServiceController extends Controller
             'price' => $request->price,
             'description' => $request->description
         ]);
+
         return redirect('/admin/service')->with('success', 'You have successfully updated your data');
     }
 
-    public function delete($id){
+
+
+    public function delete($id)
+    {
         $service = Service::find($id);
         $service->delete();
         return redirect('/admin/service')->with('success', 'You have successfully deleted a service.');

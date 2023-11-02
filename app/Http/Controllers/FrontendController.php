@@ -13,7 +13,9 @@ class FrontendController extends Controller
     public function index()
     {
         $services = Service::all();
-        return view('index', compact('services'));
+        $testimonials = Testimonial::all();
+
+        return view('index', compact('services', 'testimonials'));
     }
 
     public function contact()

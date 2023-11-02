@@ -32,20 +32,39 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form action="{{route('admin.service.store')}}" method="post">
+
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
+                            <form action="{{ route('admin.service.store') }}" method="POST">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Name</label>
-                                        <input name="name" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name of the service">
+                                        <input name="name" type="text" class="form-control" id="exampleInputEmail1"
+                                            placeholder="Enter name of the service" name="name"
+                                            @error('name')
+                                            style="border:1px solid red;"
+                                        @enderror>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Price</label>
-                                        <input name="price" type="number" class="form-control" id="exampleInputPassword1">
+                                        <input name="price" type="number" class="form-control" id="exampleInputPassword1"
+                                            name="price"
+                                            @error('price')
+                                            style="border: 1px solid red;"
+                                        @enderror>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Description</label>
-                                        <textarea name="description" class="form-control" id="exampleInputPassword1"></textarea>
+                                        <textarea name="description" class="form-control" id="exampleInputPassword1" name="description"></textarea>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->

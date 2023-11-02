@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ServiceController;
@@ -25,6 +26,8 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 Route::get('/', [FrontendController::class, 'index']);
 Route::get('/contact', [FrontendController::class, 'contact']);
 Route::get('/about', [FrontendController::class, 'about']);
+Route::get('/testimonial', [FrontendController::class, 'testimonial']);
+
 Route::post('/save-contact', [FrontendController::class, 'saveContact']);
 
 
@@ -32,7 +35,6 @@ Route::post('/save-contact', [FrontendController::class, 'saveContact']);
 
 Route::get('admin/dashboard', [DashboardController::class, 'index']);
 Route::get('/admin/messages', [MessageController::class, 'index']);
-
 Route::get('/admin/messages/{id}/delete', [MessageController::class, 'destroy']);
 
 // ----------CRUD for Service---------- //
