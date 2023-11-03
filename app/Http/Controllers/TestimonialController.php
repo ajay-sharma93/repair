@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class TestimonialController extends Controller
 {
-    //
+    public function testimonial()
+    {
+        return view('testimonial');
+    }
 }

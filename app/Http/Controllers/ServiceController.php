@@ -24,6 +24,8 @@ class ServiceController extends Controller
             'name' => 'required|string',
             'price' => 'required|numeric',
             'description' => 'required|string',
+
+
         ]);
 
         Service::create([

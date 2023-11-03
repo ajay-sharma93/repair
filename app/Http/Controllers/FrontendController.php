@@ -31,7 +31,7 @@ class FrontendController extends Controller
     public  function saveContact(Request $request)
     {
 
-        $request->validate([
+        $validated = $request->validate([
             'name' => 'required',
             'phone_number' => 'required',
             'email' => 'required'
@@ -39,7 +39,7 @@ class FrontendController extends Controller
 
 
 
-        Message::create($request->all());
+        Message::create($validated);
         return redirect()->back()->with('success', 'Your Message has been recorded');
     }
 }
