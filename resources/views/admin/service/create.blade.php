@@ -43,12 +43,12 @@
                                 </div>
                             @endif
 
-                            <form action="{{ route('admin.service.store') }}" method="POST">
+                            <form action="{{ route('admin.service.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Name</label>
-                                        <input name="name" type="text" class="form-control" id="exampleInputEmail1"
+                                        <input name="name" type="text" class="form-control"
                                             placeholder="Enter name of the service" name="name"
                                             @error('name')
                                             style="border:1px solid red;"
@@ -66,7 +66,22 @@
                                         <label for="exampleInputPassword1">Description</label>
                                         <textarea name="description" class="form-control" id="exampleInputPassword1" name="description"></textarea>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputFile">Upload Image (1*1)</label>
+                                        <div class="input-group">
+                                            <div class="custom-file">
+                                                <input name="image" type="file" class="custom-file-input">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                            </div>
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">Upload</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+
+
+
                                 <!-- /.card-body -->
 
                                 <div class="card-footer">

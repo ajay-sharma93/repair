@@ -177,7 +177,7 @@
                     <div class="col-sm-6 col-md-4 mx-auto">
                         <div class="box ">
                             <div class="img-box">
-                                <img src="assets/images/s1.png" alt="" />
+                                <img src="{{ $service->image }}" alt="" />
                             </div>
                             <div class="detail-box">
                                 <h5>
@@ -217,7 +217,7 @@
                             <div class="box">
                                 <div class="client_id">
                                     <div class="img-box">
-                                        {{-- <img src="{{ $testimonial->image }}" alt=""> --}}
+                                        <img src="{{ $testimonial->image }}" alt="">
                                     </div>
                                     <div class="client_detail">
                                         <div class="client_info">
@@ -320,7 +320,8 @@
                                 <a href="">
                                     <div class="item ">
                                         <div class="img-box ">
-                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                            {{-- <i class="fa fa-map-marker" aria-hidden="true"></i> --}}
+                                            <img src="{{ $service->image }}" alt="">
                                         </div>
                                         <p>
                                             Lorem Ipsum is simply dummy text
